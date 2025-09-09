@@ -17,3 +17,5 @@ venv/
 # IDE
 .vscode/
 .idea/
+
+scripts/npi/npidata_pfile_20050523-20250810.csv
