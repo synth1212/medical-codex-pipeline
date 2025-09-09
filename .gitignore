@@ -27,7 +27,6 @@ Module1_MedicalCodexes/icd/who/output/icd102019syst_codes.csv
 Module1_MedicalCodexes/hcpcs/output/HCPC2025_OCT_ANWEB.csv
 Module1_MedicalCodexes/icd/us/output/icd10cm_order_2025.csv
 Module1_MedicalCodexes/npi/npidata_pfile_20050523-20250810.csv
-
 Module1_MedicalCodexes/rxnorm/files/*.rrf
 Module1_MedicalCodexes/rxnorm/output/RXNATOMARCHIVE.csv
 Module1_MedicalCodexes/snowmed/sct2_Description_Full-en_US1000124_20250301.txt
@@ -35,4 +34,10 @@ Module1_MedicalCodexes/snowmed/output/sct2_Description_Full.csv
 
 medical-codex-pipeline/scripts/npi/npidata_pfile_20050523-20250810.csv
 medical-codex-pipeline/scripts/npi/output/npidata_pfile_20050523-20250810.csv
-medical-codex-pipeline/scripts/loinc/output/Loinc.csv
+medical-codex-pipeline/scripts/loinc/Loinc.csv
+
+# ignore any CSV under scripts/
+medical-codex-pipeline/scripts/**/*.csv
+
+# but keep small outputs you generate
+!medical-codex-pipeline/outputs/*.csv
