@@ -4,7 +4,7 @@ import numpy as np
 from utils.common_functions import save_to_formats
 
 # Path to the HCPCS text file
-file_path = "scripts/hcpcs/HCPC2025_OCT_ANWEB_v3.xlsx"
+file_path = "inputs/HCPC2025_OCT_ANWEB_v3.xlsx"
 
 # Print Column Names based on dataset
 print("Column Names based on dataset:")

@@ -1,7 +1,7 @@
 import polars as pl
 import pandas as pd
 
-npi_file_path = ('Assignment_1/medical-codex-pipeline/scripts/npi/npidata_pfile_20050523-20250810.csv')
+npi_file_path = ('inputs/npidata_pfile_20050523-20250810.csv')
 
 ## just load the first 1000 rows
 df = pl.read_csv(npi_file_path, n_rows=1000)

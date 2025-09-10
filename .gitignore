@@ -19,11 +19,11 @@ venv/
 .idea/
 
 # ignore any import dataset under any scripts/ folder (any depth)
-**/scripts/**/*.csv
-**/scripts/**/*.xlsx
-**/scripts/**/*.xml
-**/scripts/**/*.txt
-**/scripts/**/*.zip
+**/inputs/**/*.csv
+**/inputs/**/*.xlsx
+**/inputs/**/*.xml
+**/inputs/**/*.txt
+**/inputs/**/*.zip
 
 # but keep small outputs you generate
 !**/outputs/*.csv

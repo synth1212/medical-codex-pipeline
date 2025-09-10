@@ -1,7 +1,7 @@
 import pandas as pd
 
 ## Inputs/Loinc.csv
-lonic = pd.read_csv('Assignment_1/medical-codex-pipeline/scripts/loinc/Loinc.csv')
+lonic = pd.read_csv('inputs/Loinc.csv')
 
 ### Info to describe 
 lonic.info()
