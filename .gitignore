@@ -18,7 +18,7 @@ venv/
 .vscode/
 .idea/
 
-# ignore any import dataset under any scripts/ folder (any depth)
+# ignore any import dataset under any scripts/folder
 **/inputs/**/*.csv
 **/inputs/**/*.xlsx
 **/inputs/**/*.xml

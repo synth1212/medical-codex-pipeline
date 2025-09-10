@@ -1,4 +1,10 @@
 import pandas as pd
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))) 
+
+from utils.common_functions import save_to_format
 
 ## Inputs/Loinc.csv
 lonic = pd.read_csv('inputs/Loinc.csv')
@@ -31,10 +37,12 @@ lonic_small = lonic_small.rename(columns={
     'LONG_COMMON_NAME': 'long_common_name'
 })
 
-
-file_output_path = 'Assignment_1/medical-codex-pipeline/outputs/lonic_small.csv'
-
+# Save to output without Common Function
+file_output_path = 'medical-codex-pipeline/outputs/lonic_small.csv'
 lonic_small.to_csv(file_output_path)
 
 print(f"Output saved to {file_output_path}")
+
+# Save to Output with Common Function 
+save_to_format(lonic_small, baseFile="Loinc")
 
