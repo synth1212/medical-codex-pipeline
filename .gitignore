@@ -18,8 +18,12 @@ venv/
 .vscode/
 .idea/
 
-# ignore any CSV under any scripts/ folder (any depth)
+# ignore any import dataset under any scripts/ folder (any depth)
 **/scripts/**/*.csv
+**/scripts/**/*.xlsx
+**/scripts/**/*.xml
+**/scripts/**/*.txt
+**/scripts/**/*.zip
 
 # but keep small outputs you generate
 !**/outputs/*.csv
