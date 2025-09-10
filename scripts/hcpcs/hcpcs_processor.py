@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 
+from utils.common_functions import save_to_formats
+
 # Path to the HCPCS text file
 file_path = "scripts/hcpcs/HCPC2025_OCT_ANWEB_v3.xlsx"
 
@@ -10,15 +12,15 @@ print("Column Names based on dataset:")
 df=pd.read_excel(file_path)
 print(df.columns)
 # Output:
-    Index(['HCPC', 'SEQNUM', 'RECID', 'LONG DESCRIPTION', 'SHORT DESCRIPTION',
-       'PRICE1', 'PRICE2', 'PRICE3', 'PRICE4', 'MULT_PI', 'CIM1', 'CIM2',
-       'CIM3', 'MCM1', 'MCM2', 'MCM3', 'STATUTE', 'LABCERT1', 'LABCERT2',
-       'LABCERT3', 'LABCERT4', 'LABCERT5', 'LABCERT6', 'LABCERT7', 'LABCERT8',
-       'XREF1', 'XREF2', 'XREF3', 'XREF4', 'XREF5', 'COV', 'ASC_GRP', 'ASC_DT',
-       'OPPS', 'OPPS_PI', 'OPPS_DT', 'PROCNOTE', 'BETOS', 'TOS1', 'TOS2',
-       'TOS3', 'TOS4', 'TOS5', 'ANEST_BU', 'ADD DT', 'ACT EFF DT', 'TERM DT',
-       'ACTION CD'],
-      dtype='object')
+Index(['HCPC', 'SEQNUM', 'RECID', 'LONG DESCRIPTION', 'SHORT DESCRIPTION',
+    'PRICE1', 'PRICE2', 'PRICE3', 'PRICE4', 'MULT_PI', 'CIM1', 'CIM2',
+   'CIM3', 'MCM1', 'MCM2', 'MCM3', 'STATUTE', 'LABCERT1', 'LABCERT2',
+   'LABCERT3', 'LABCERT4', 'LABCERT5', 'LABCERT6', 'LABCERT7', 'LABCERT8',
+   'XREF1', 'XREF2', 'XREF3', 'XREF4', 'XREF5', 'COV', 'ASC_GRP', 'ASC_DT',
+   'OPPS', 'OPPS_PI', 'OPPS_DT', 'PROCNOTE', 'BETOS', 'TOS1', 'TOS2',
+   'TOS3', 'TOS4', 'TOS5', 'ANEST_BU', 'ADD DT', 'ACT EFF DT', 'TERM DT',
+   'ACTION CD'],
+    dtype='object')
 
 # Select the columns you want to keep 
 
