@@ -15,11 +15,11 @@ load_icd10cm_data_filepath = "inputs/icd10cm_order_2025.txt"
 colspecs = [(0, 6), (6, 14), (14, 16), (16, None)]
 col_names = ["seq", "code", "flag", "description"]
 
-# Selecting random 10 rows to check the data
+# Checking the data
 df = pd.read_fwf(load_icd10cm_data_filepath, colspecs=colspecs, names=col_names)
 print(df.head())
 
-# Set up logging
+# Set up logging -> Why Logging? It helps track what happened, when it happened, and why it happened.
 logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(message)s") 
     # Set logging level to INFO, %(levelname)s - %(message)s means log level and message. 
     ## Levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
@@ -35,16 +35,16 @@ logging.info("Stripped and uppercased 'code' column.")
 df['description'] = df['description'].str.strip().str.title()
 logging.info("Stripped and title-cased 'description' column.")
         
-# Drop duplicates
-before = len(df)
+# Drop duplicates and count before and after cleaning
+before = len(df) # Count number of rows before dropping duplicates
 df = df.drop_duplicates(subset=['code'])
-after = len(df)
+after = len(df) # Count number of rows after dropping duplicates
 logging.info(f"Dropped {before - after} duplicate rows. Final rows: {after}")
 
-# Load data after cleaning
+# Preview data after cleaning
 print(df.head())
 
-# Assuming clean_icd10cm_data is the intended function to process the DataFrame
+# Renaming dataframe
 icd10cm = df.copy()
 print(icd10cm.head())
 
