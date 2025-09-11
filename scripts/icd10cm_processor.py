@@ -20,7 +20,10 @@ df = pd.read_fwf(load_icd10cm_data_filepath, colspecs=colspecs, names=col_names)
 print(df.head())
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(message)s")
+logging.basicConfig(level=logging.INFO, format="%(levelname)s - %(message)s") 
+    # Set logging level to INFO, %(levelname)s - %(message)s means log level and message. 
+    ## Levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    ### Message: The actual log message
 logging.info("ICD-10-CM processing completed successfully.")
 logging.info(f"Raw data shape: {df.shape}")
 
