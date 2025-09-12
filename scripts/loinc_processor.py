@@ -2,7 +2,7 @@ import pandas as pd
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))) 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__name__), ".."))) 
 
 from utils.common_functions import save_to_format
 

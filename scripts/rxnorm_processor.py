@@ -3,14 +3,14 @@ from pathlib import Path
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))) 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__name__), ".."))) 
 
 from utils.common_functions import save_to_format
 
 # https://www.nlm.nih.gov/research/umls/rxnorm/docs/techdoc.html#s12_10
 
 # Path to the RXNATOMARCHIVE.RRF file
-file_path = Path('Module1_MedicalCodexes/rxnorm/files/RXNATOMARCHIVE.RRF')
+file_path = Path('inputs/RXNATOMARCHIVE.RRF')
 
 # Define the column names based on RXNATOMARCHIVE.RRF structure
 columns = [
@@ -29,18 +29,19 @@ df = pl.read_csv(
 )
 
 # Drop the last empty column if it exists
-if df.columns[-1] == '':
+if df.columns[-1] == "":
     df = df.drop(df.columns[-1])
+print(df.shape)
 
 # Add a last_updated column
-df = df.with_column(pl.lit("2024-06-01").alias("last_updated"))
+df = df.with_columns(pl.lit("2024-06-01").alias("last_updated"))
 
-# Save as CSV to Module1_MedicalCodexes/rxnorm/output
-output_dir = Path('Module1_MedicalCodexes/rxnorm/output')
-output_dir.mkdir(exist_ok=True)
-output_path = output_dir / 'RXNATOMARCHIVE.csv'
-
+# Save as CSV to outputs
+output_path = 'outputs/RXNATOMARCHIVE.csv'
 df.write_csv(output_path)
+
+# Save as CSV to output with common function
+save_to_format(df, baseFile="RXNATOMARCHIVE")
 
 print(f"Successfully parsed {len(df)} records from RXNATOMARCHIVE.RRF")
 print(f"Saved to {output_path}")
