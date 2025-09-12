@@ -44,4 +44,65 @@ Create Python scripts that can process each medical codex listed below into stan
 * NPI (US) 
     - https://download.cms.gov/nppes/NPI_Files.html 
 
-##
+## Repository Setup
+1. Create a **public** GitHub repository named `medical-codex-pipeline`
+2. Structure:
+   ```
+   medical-codex-pipeline/
+   ├── input/
+   ├── scripts/
+   │   ├── snomed_processor.py
+   │   ├── icd10cm_processor.py
+   │   ├── icd10who_processor.py
+   │   ├── hcpcs_processor.py
+   │   ├── loinc_processor.py
+   │   ├── rxnorm_processor.py
+   │   └── npi_processor.py
+   ├── output/
+   │   ├── csv/
+   ├── utils/
+   │   └── common_functions.py
+   ├── requirements.txt
+   └── README.md
+   ```
+
+3. **Important**: Create `.gitignore` to exclude raw data files:
+    ```gitignore
+    # Raw data files (exclude from repo)
+    inputs/
+    *.txt
+    *.xml
+    *.zip
+    raw_downloads/
+
+    # Processed files are OK to commit
+    # output/ - keep these
+
+    # Python
+    __pycache__/
+    *.pyc
+    .env
+    venv/
+
+    # IDE
+    .vscode/
+    .idea/
+
+    # ignore any import dataset under any scripts/folder
+    **/inputs/**/*.csv
+    **/inputs/**/*.xlsx
+    **/inputs/**/*.xml
+    **/inputs/**/*.txt
+    **/inputs/**/*.zip
+
+    # but keep small outputs you generate
+    !**/outputs/*.csv
+    ```
+    **<h4>Understanding .gitignore**</h4>
+        <p>The ```.gitignore``` file is essential for this project beuase it tells Git which files to ignore and when uploading into GitHub. This is important when it comes to:
+            <ul style="margin-left:20px">
+                <li>Working with Large Data Sets</li>
+                <li>Licensing/Contracting Concerns</li>
+                <li>Overall Performance Level of the Repository</li>
+            </ul>
+        </p>
