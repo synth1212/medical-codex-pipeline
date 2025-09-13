@@ -34,10 +34,16 @@ print(df_small.head())
 
 # Creating Output directory
 output_path = 'outputs/icd102019syst_codes.csv'
-df.to_csv(output_path, index=False)
+df_small.to_csv(output_path, index=False)
 
 # Output directory with Common Functions
 save_to_format(df_small, baseFile="icd102019syst_codes")
+
+# Check the output file size 
+file_path2 = "outputs/icd102019syst_codes.csv"
+size_bytes = os.path.getsize(file_path2)
+size_mb = size_bytes / (1024 * 1024)
+print(f"CSV size: {size_bytes:,} bytes ({size_mb:.2f} MB)")
 
 print(f"Successfully parsed {len(df)} records from {file_path}")
 print(f"Saved to {output_path}")
