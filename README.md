@@ -99,10 +99,11 @@ Create Python scripts that can process each medical codex listed below into stan
     !**/outputs/*.csv
     ```
     **<h4>Understanding .gitignore**</h4>
-        <p>The ```.gitignore``` file is essential for this project beuase it tells Git which files to ignore and when uploading into GitHub. This is important when it comes to:
+        <p>The ```.gitignore``` file is essential for this assignment beuase it tells Git which files to ignore and when uploading into GitHub. This is important when it comes to:
             <ul style="margin-left:20px">
                 <li>Working with Large Data Sets</li>
                 <li>Licensing/Contracting Concerns</li>
                 <li>Overall Performance Level of the Repository</li>
             </ul>
         </p>
+4. Create `requirement` text file to list all of the Python packages use in this assignment
