@@ -31,8 +31,8 @@ df = pl.read_csv(
 )
 
 # Select the columns you want to keep
-cols = ["term"]
-snomed_small = df[cols]
+df_cols = ["term"]
+snomed_small = df[df_cols]
 print(snomed_small.head())
 
 # Clean data by replacing the multiple spacing with just a single spacing
@@ -42,18 +42,20 @@ snomed_small["term"].str.strip_chars().str.replace_all(r"\s+", " ").alias("term"
 snomed_small = snomed_small.unique(subset=['term'])
 
 # Add a last_updated column
-df = df.with_columns(pl.lit("2025-09-10").alias("last_updated"))
+snomed_small = snomed_small.with_columns(pl.lit("2025-09-10").alias("last_updated"))
 
 # Save as CSV to outputs
 output_path = 'outputs/sct2_Description_Full-en_US1000124_20250301.csv'
-df.write_csv(output_path)
+snomed_small.write_csv(output_path)
 
 # Save as CSV to output with common function
-save_to_format(df, baseFile="sct2_Description_Full-en_US1000124_20250301")
+save_to_format(snomed_small, baseFile="sct2_Description_Full-en_US1000124_20250301")
 
 # Check the output file size 
-file_path2 = "outputs/sct2_Description_Full-en_US1000124_20250301.csv"
+file_path2 = "output/sct2_Description_Full-en_US1000124_20250301.csv"
+file_path3 = "outputs/sct2_Description_Full-en_US1000124_20250301.csv"
 size_bytes = os.path.getsize(file_path2)
+size_bytes = os.path.getsize(file_path3)
 size_mb = size_bytes / (1024 * 1024)
 print(f"CSV size: {size_bytes:,} bytes ({size_mb:.2f} MB)")
 
